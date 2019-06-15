@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    
+    
+  <table border='1' width='100%' style='border-collapse: collapse;'>
+  <tr>
+    <th>ID</th>
+    <th>Number</th>
+    <th>Amount</th>
+    <th>Update</th>
+    <th>Delete</th>
+    
+
+  </tr>
+
+  <tr *ngFor="let policy of policies">
+    <td>{{ policy.id }}</td>
+    <td>{{ policy.number }}</td>
+    <td>{{ policy.amount }}</td>
+    
+    <td> <button mat-raised-button color="accent" (click)="selectPolicy(policy)">Update</button>
+        </td>
+     <td><button mat-raised-button color="warn" (click)="deletePolicy(policy.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+<br>
+
+<br>
+  <form #f = "ngForm">
+    <label>Policy Number</label>
+    <input type="text" name="number" [(ngModel)] = "selectedPolicy.number">
+    <br>
+    <label>Amount</label>
+    <input type="text" name="amount" [(ngModel)] = "selectedPolicy.amount">
+    <br>
+    
+    <br>
+    <button  mat-raised-button color="warn" (click)="createOrUpdatePolicy(f)">Create/Update</button>
+  </form>
+  <form>
+      <button  mat-raised-button color="warn" (click)="view()">View Records</button>
+
+  </form>
+
+  

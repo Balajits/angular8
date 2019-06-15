@@ -1,0 +1,11 @@
+.example-card
+{
+  margin-left: 637px;
+  margin-top: 50px;
+  margin-right: 662px;
+  height: auto;
+  width: 300px;
+}
+body{
+  background-color: aliceblue;
+}

@@ -1,0 +1,40 @@
+
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body><div class="container" >
+  <div class="card card-container">
+     
+      <img id="profile-img" class="profile-img-card" src="/assets/img1.png" />
+      <p id="profile-name" class="profile-name-card">Admin</p>
+
+      <form class="form-signin" [formGroup]="loginform" (ngSubmit)="onsubmit()">
+          <span id="reauth-email" class="reauth-email"></span>
+          <input type="text" name="user" class="form-control" placeholder="User Name" formControlName="username" autofocus [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required autofocus>
+          <div *ngIf="loginform.controls['username'].hasError('required') && loginform.controls['username'].touched">Username is Required</div>         
+          <input type="password" name="inputPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" formControlName="password" required>
+          <div *ngIf="loginform.controls['password'].hasError('required') && loginform.controls['password'].touched">Password Required</div>
+          <div id="remember" class="checkbox">
+              <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+         
+          
+           <button class="btn btn-lg btn-primary btnlogin" type="submit" [disabled]="loginform.invalid">Login</button>
+           <button class="btn btn-lg btn-info btnlogin" [disabled]  routerLink="/register">New User</button>
+          
+      </form>
+      
+  </div>
+</div>
+</body>
+</html>

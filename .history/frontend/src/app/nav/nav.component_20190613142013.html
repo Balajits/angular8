@@ -1,0 +1,39 @@
+<table border='1' width='100%' style='border-collapse: collapse;'>
+    <tr>
+      <th>ID</th>
+      <th>Number</th>
+      <th>Amount</th>
+      <th>Update</th>
+      <th>Delete</th>
+      
+  
+    </tr>
+  
+    <tr *ngFor="let policy of policies">
+      <td>{{ policy.id }}</td>
+      <td>{{ policy.number }}</td>
+      <td>{{ policy.amount }}</td>
+      
+      <td> <button mat-raised-button color="accent" (click)="selectPolicy(policy)">Update</button>
+          </td>
+       <td><button mat-raised-button color="warn" (click)="deletePolicy(policy.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <form #f = "ngForm">
+      <mat-form-field>
+      <label>Policy Number</label>
+      <input type="text" matInput placeholder="Input" name="number" [(ngModel)] = "selectedPolicy.number">
+      </mat-form-field>
+      <br>
+      <label>Amount</label>
+      <input type="text" name="amount" [(ngModel)] = "selectedPolicy.amount">
+      <br>
+      
+      <br>
+      <button  mat-raised-button color="warn" (click)="createOrUpdatePolicy(f)">Update</button>
+    </form>
+    <form>
+        <button  mat-raised-button color="warn" (click)= "view2()" >CreateRecords</button>
+  
+    </form>

@@ -1,0 +1,36 @@
+<table border='1' width='100%' style='border-collapse: collapse;'>
+  <tr>
+    <th>ID</th>
+    <th>Policy Number</th>
+    <th>Policy Amount</th>
+    <th>Operations</th>
+
+  </tr>
+
+  <tr *ngFor="let policy of policies">
+    <td>{{ policy.id }}</td>
+    <td>{{ policy.number }}</td>
+    <td>{{ policy.amount }}</td>
+    <td>
+       <button mat-button color="warn" (click)="deletePolicy(policy.id)">Delete</button>
+      <button mat-button color="accent" (click)="selectPolicy(policy)">Update</button>
+    </td>
+  </tr>
+</table>
+<br>
+
+<form class="example-form" #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Months" [(ngModel)] = "selectedPolicy.number">
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enter Amount" [(ngModel)] = "selectedPolicy.number">
+  </mat-form-field>
+
+  <br>
+
+  <input type="button"  mat-raised-button (click)="createOrUpdatePolicy(f)" value="Create or Update Policy">
+  
+  </form>

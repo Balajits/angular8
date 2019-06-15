@@ -1,0 +1,11 @@
+input{
+    width: 100%;
+}
+button
+{
+    width: 30%;
+    align: center;
+}
+body{
+    font-size: 2.12em
+}

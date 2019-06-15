@@ -1,0 +1,31 @@
+
+<html>
+  <head>
+    
+  </head>
+  <body><div class="container" ng-controller="logincontrol">
+  <div class="card card-container">
+     
+      <img id="profile-img" class="profile-img-card" src="/assets/img1.png" />
+      <p id="profile-name" class="profile-name-card">Admin</p>
+
+      <form action=" " class="form-signin" name="form">
+          <span id="reauth-email" class="reauth-email"></span>
+          <input type="text" name="user" class="form-control" placeholder="User Name" ng-model="username" required autofocus>
+          <input type="password" name="inputPassword" class="form-control" placeholder="Password" ng-model="password" required>
+          <div id="remember" class="checkbox">
+              <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+         
+          
+           <button class="btn btn-lg btn-primary btnlogin" type="submit" ng-click="submit()" ng-disabled="form.$invalid">Login</button>
+           <button class="btn btn-lg btn-info btnlogin"  ng-click="reg()">New User</button>
+          
+      </form>
+      
+  </div>
+</div>
+</body>
+</html>
